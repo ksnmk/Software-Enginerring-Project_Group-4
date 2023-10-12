@@ -1,0 +1,77 @@
+/* Signup.css */
+
+.signup-container {
+    max-width: 400px;
+    margin-top: 300px;
+    border-radius: 15px;
+    padding: 10px; /* Reduced from 20px */
+    border: 4px solid grey; /* Slightly thicker border */
+    background-image: linear-gradient(135deg, #00235c6d, #f7f4f4, #00235c6d, #f2e8e8); 
+    box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.3);
+  }
+  
+  .signup-container h2 {
+    text-align: center;
+    margin-bottom: 15px; /* Reduced from 20px */
+  }
+  
+  .form-group {
+    margin-bottom: 10px; /* Reduced from 15px */
+  }
+    
+    label {
+      display: block;
+      font-weight: bold;
+      margin-bottom: 5px;
+      color: black;
+    }
+    
+    input[type="text"],
+    input[type="email"],
+    input[type="password"],
+    select {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+      font-size: 16px;
+    }
+    
+    button[type="submit"] {
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      font-size: 16px;
+      border-radius: 7px;
+      cursor: pointer;
+  
+    }
+    #loginButton{
+      margin-left: 45%;
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: black;
+    }
+    #loginButton:hover{
+      transform: scale(110%) rotate(-2deg);
+      background-color:navy ;
+    }
+    #signup1{
+      background-color: rgb(22, 21, 21);
+    }
+    #signup1:hover{
+      transform: scale(110%) rotate(-2deg);
+      background-color: navy;
+    }
+    .error {
+      color: red;
+      text-align: center;
+      margin-top: 10px;
+      
+    }
+    
+    .required {
+      color: red;
+  
+    }
+    
