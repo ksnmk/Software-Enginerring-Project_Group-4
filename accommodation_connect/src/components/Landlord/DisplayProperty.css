@@ -1,0 +1,65 @@
+.disproperty-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; /* Center the cards when fewer than the max per row */
+  gap: 20px; /* Creates a consistent gap between cards */
+  padding: 20px; /* Adds some space around the entire list */
+}
+
+.disproperty-card {
+  display: flex;
+  flex-direction: row; /* ensures the image and details are side by side */
+  align-items: center; /* vertically center the content */
+  background-color: #bcbbbb;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  width: 90%; /* Make the card occupy 90% of the list's width */
+  max-width: 600px;
+  transition: transform 0.3s; /* For hover effect */
+}
+
+.disproperty-card:hover {
+  transform: translateY(-5px); /* Slight upward movement on hover for a dynamic feel */
+}
+
+.disproperty-image {
+  flex: 0 0 40%; /* occupies 40% of the card, won't grow or shrink */
+}
+
+.disproperty-image img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 5px; /* Soft rounded corners on the image */
+}
+
+.disproperty-details {
+  flex: 1; /* takes the remaining space after the image */
+  padding-left: 20px;
+}
+
+/* Typography enhancements */
+.disproperty-details h2,
+.disproperty-details p {
+  margin: 10px 0;
+  line-height: 1.5; /* Improves readability */
+}
+
+.disproperty-details button {
+  display: inline-block;
+  margin-top: 10px; /* Only margin at the top to avoid cumulative side margins */
+  padding: 10px 20px;
+  border: none;
+  background-color: #007BFF;
+  color: #fff;
+  margin-right: 10%;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 0.9rem; /* Slightly smaller font for a button */
+  transition: all 0.3s; /* Smoothens hover transitions */
+}
+
+.disproperty-details button:hover {
+  background-color: #0056b3;
+  transform: scale(1.05); /* Slight increase in size on hover */
+}

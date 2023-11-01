@@ -1,0 +1,82 @@
+.landlord-container {
+  width: 50%;
+  margin: 20px auto;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background-image: linear-gradient(135deg, #00235c6d, #00235c6d); 
+  border-radius: 5px;
+}
+
+h2 {
+  text-align: center;
+  color: black;
+  margin-bottom: 20px;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+  color: black;
+}
+
+input[type="text"],
+input[type="number"],
+textarea,
+input[type="file"] {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 14px;
+  color: black;
+}
+
+textarea {
+  min-height: 80px;
+  resize: vertical;
+}
+
+#landlordSubmit {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  background-color: #007BFF;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  margin-top: 10px;
+}
+
+#landlordSubmit:hover {
+  background-color:green;
+}
+
+#landlordSubmit:active {
+  background-color: #003d80;
+  transform: scale(0.98);
+}
+
+input[type="file"] {
+  padding: 5px;
+}
+
+.alert {
+  padding: 15px;
+  background-color: #f44336;
+  color: white;
+  margin-bottom: 15px;
+}
+
+.success {
+  padding: 15px;
+  background-color: #4CAF50;
+  color: white;
+  margin-bottom: 15px;
+}
