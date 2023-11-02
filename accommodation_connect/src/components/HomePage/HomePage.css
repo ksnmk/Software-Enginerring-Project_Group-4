@@ -1,0 +1,128 @@
+/* CSS for HomePage */
+.homepage {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f9f9f9; /* A slightly off-white background for the whole page */
+  text-align: center;
+}
+.homepage h1 {
+  font-size: 2em; /* A slightly larger size for the heading */
+  margin: 20px 0;
+  color: #333; /* Darker color for better visibility */
+}
+
+.homepage-property-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between; /* Even spacing between cards */
+  padding: 20px 0; /* Some vertical spacing for the list */
+}
+
+.homepage-property-card {
+  background-color: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin: 10px;
+  width: calc(50% - 20px); 
+  overflow: hidden;
+  transition: transform 0.2s;
+  display: flex;
+  flex-direction: column; /* Image on top, details at the bottom */
+}
+
+.homepage-property-card:hover {
+  transform: scale(1.02);
+  box-shadow: 0 5px 8px rgba(0, 0, 0, 0.2); /* A deeper shadow on hover */
+}
+
+/* CSS for the property image */
+.homepage-property-image {
+  width: 100%; 
+  height: auto;
+  border-top-left-radius: 8px; /* Rounded corners on top */
+  border-top-right-radius: 8px; 
+  object-fit: cover; /* Ensures images cover the allotted space without distortion */
+}
+
+/* CSS for the property details */
+.homepage-property-details {
+  flex: 1; /* Allow details to occupy available space */
+  padding: 15px; /* Padding inside the details area */
+}
+
+
+
+/* CSS for property info */
+.homepage-property-info {
+  font-size: 1.2em;
+  margin: 10px 0; /* Some margin between title, info, and description */
+  color: #555; /* Slightly lighter color than title */
+}
+
+/* CSS for property description */
+.homepage-property-description {
+  font-size: 1em;
+  margin: 10px 0;
+  color: #777; /* Light color for a subtle appearance */
+  line-height: 1.5; /* Better readability for descriptions */
+}
+/* Basic styling for the Connect button */
+.Connect {
+  background-color: #2980b9; /* A cool blue */
+  color: #ffffff; /* White text color */
+  border: none; /* Removes the default border */
+  border-radius: 5px; /* Rounded corners */
+  padding: 10px 20px; /* Top-bottom padding and left-right padding */
+  font-size: 1em; /* Font size */
+  cursor: pointer; /* Makes the mouse cursor look clickable */
+  transition: background-color 0.3s, transform 0.2s; /* Smooth transitions for hover effects */
+  outline: none; /* Removes the default outline */
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* A subtle shadow */
+  display: inline-block; /* Makes the button inline-block so you can control width, if necessary */
+  text-align: center; /* Centers the text inside */
+  margin-bottom: 5%;
+}
+
+/* Hover effect for the Connect button */
+.Connect:hover {
+  background-color: green; /* A slightly lighter blue on hover */
+  transform: translateY(-2px); /* Moves the button up a bit */
+  box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.1); /* A bigger shadow on hover */
+}
+
+/* Active state (when the button is clicked) */
+.Connect:active {
+  background-color: #247aa9; /* A slightly darker blue when active (clicked) */
+  transform: translateY(0px); /* Resets the translateY */
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Resets the shadow to the original state */
+}
+.search-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.location-input {
+  padding: 10px 15px;
+  border-radius: 5px 0 0 5px;
+  border: 1px solid #e0e0e0;
+  outline: none;
+  font-size: 1em;
+}
+
+.search-button {
+  padding: 10px 15px;
+  border-radius: 0 5px 5px 0;
+  border: 1px solid #2980b9;
+  background-color: black;
+  color: #ffffff;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  margin-left: 2%;
+}
+
+.search-button:hover {
+  background-color: #3498db;
+}

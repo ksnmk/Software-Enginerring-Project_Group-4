@@ -1,0 +1,103 @@
+/* Root variables for easy theme management */
+:root {
+  --primary-color:black;
+  --secondary-color: #34495e;
+  --bg-color: #f9f9f9;
+  --border-color: #e0e0e0;
+  --font-family: 'Arial', sans-serif;
+}
+
+.propertydetailspage-container {
+  padding: 20px 40px;
+  background-color: var(--bg-color);
+  font-family: var(--font-family);
+}
+
+.propertydetailspage-title {
+  font-size: 28px;
+  margin-bottom: 30px;
+  color: var(--secondary-color);
+  border-bottom: 2px solid var(--border-color);
+  padding-bottom: 10px;
+}
+
+.propertydetailspage-details {
+  display: flex;
+  align-items: center; /* Aligns content vertically centered */
+  gap: 20px; /* Provides a gap between the image and the details */
+}
+
+.propertydetailspage-image-container {
+  flex: 1;
+  padding: 20px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  background-color: black;
+}
+
+.propertydetailspage-image {
+  max-width: 100%;
+  height: auto;
+  border: none;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.propertydetailspage-info {
+  flex: 2;
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.propertydetailspage-info p {
+  margin-bottom: 20px;
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--secondary-color);
+}
+
+.propertydetailspage-info strong {
+  font-weight: bold;
+  color: var(--primary-color);
+}
+
+.propertydetailspage-loading-message {
+  text-align: center;
+  font-size: 20px;
+  margin-top: 40px;
+  color: var(--primary-color);
+}
+.propertydetailspage-payment-info,
+.propertydetailspage-verification {
+  margin-top: 40px;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+  background-color: #fff;
+}
+
+.propertydetailspage-verification h3,
+.propertydetailspage-payment-info h3 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.propertydetailspage-verification p,
+.propertydetailspage-payment-info p {
+  margin: 20px 0;
+}
+
+.propertydetailspage-verification input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  outline: none;
+  transition: border-color 0.3s;
+}
+
+.propertydetailspage-verification input:focus {
+  border-color: #2980b9;
+}
