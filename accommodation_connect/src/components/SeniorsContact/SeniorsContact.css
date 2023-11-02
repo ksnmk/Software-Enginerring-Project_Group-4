@@ -1,0 +1,38 @@
+/* Add CSS for SeniorsContact component */
+.seniors-contact-container {
+    margin: 20px;
+    padding: 20px;
+    background-color: black;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .seniors-contact-title {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: white;
+  }
+  
+  .seniors-contact-list {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .seniors-contact-item {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 10px;
+  }
+  
+  .seniors-contact-item h3 {
+    font-size: 18px;
+    margin: 0;
+  }
+  
+  .seniors-contact-item p {
+    font-size: 14px;
+    margin: 5px 0;
+  }
+  
