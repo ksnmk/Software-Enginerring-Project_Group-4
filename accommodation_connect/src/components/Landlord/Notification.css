@@ -1,0 +1,34 @@
+/* NotificationsPage.css */
+
+.notifications-page {
+    margin: 20px;
+    padding: 20px;
+    border: 1px solid #ccc;
+  }
+  
+  .notifications-title {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+  }
+  
+  .notifications-list {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .notification-item {
+    margin-bottom: 10px;
+  }
+  
+  .mark-as-read-button {
+    background-color: #4caf50;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .mark-as-read-button:hover {
+    background-color: #45a049;
+  }
+  

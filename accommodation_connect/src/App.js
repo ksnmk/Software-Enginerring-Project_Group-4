@@ -6,7 +6,12 @@ import DisplayProperty from './components/Landlord/DisplayProperty';
 import EditProperty from './components/Landlord/EditProperty';
 import Report from './components/Report/Report';
 import PropertyDetailsPage from './components/HomePage/PropertyDetailsPage';
-import SeniorsContact from './components/SeniorsContact/SeniorsContact';
+import Notification from './components/Landlord/Notification';
+import Raiseproblem from './components/Communicationtools/Raiseproblem';
+import SolutionForm from './components/Communicationtools/Solutionform';
+import Problemform from './components/Communicationtools/Problemform';
+import About from './components/About/About';
+import Editabout from './components/About/Editabout';
 import 'bootstrap/dist/css/bootstrap.min.css'
 import {BrowserRouter, Routes, Route} from 'react-router-dom'
 
@@ -25,7 +30,12 @@ function App() {
         <Route path="/report" element={<Report />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
-        <Route path="/contact" element={<SeniorsContact />} />
+        <Route path="/connect" element={<Raiseproblem />} />
+        <Route path="/connectsolutionform/:id" element={<SolutionForm />} />
+        <Route path="/connectproblemform" element={<Problemform />} />
+        <Route path="/notifications" element={<Notification />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/editabout/:userId" element={<Editabout />} />
       </Routes>
     </BrowserRouter>
   );
