@@ -1,0 +1,66 @@
+/* ... (previous CSS code) ... */
+
+/* Table Header styles for a colorful look */
+/* Table Styles */
+.gridTable {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+    font-size: 16px;
+    overflow-x: auto;
+}
+
+.gridTable thead {
+    background-color: #343a40;
+    color: #ffffff;
+}
+marquee {
+    font-size: 15px;
+    font-weight: bold;
+    color: #161616;
+    background-color: #84e3dd;
+    padding: 5px;
+    border-radius: 8px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+}
+.delete{
+    background-color: rgb(255, 69, 69);
+}
+
+.gridTable th, .gridTable td {
+    padding: 10px 20px;
+    border: 1px solid #ddd;
+}
+
+.gridTable tbody tr:nth-child(odd) {
+    background-color: #f2f2f2;
+}
+
+.gridTable tbody tr:hover {
+    background-color: #f5f5f5;
+}
+
+/* Distinct styles for Verified and UnVerified buttons in the table */
+.gridTable td button {
+    padding: 5px 15px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    font-weight: bold;
+}
+
+.gridTable td button:hover {
+    opacity: 0.9;
+}
+#ask{
+    margin-left: 10%;
+
+
+}
+#search{
+    margin-left: 3%;
+}
+.heading{
+    margin-top: 10%;
+}
