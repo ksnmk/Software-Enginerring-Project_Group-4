@@ -9,6 +9,10 @@ function Login() {
     password: '',
     userType: 'user', // Default user type is 'user'
   });
+
+  const [userId, setUserId] = useState(null);
+  const [landlordId, setLandlordId] = useState(null);
+
   const [error, setError] = useState('');
   const navigate = useNavigate();
 
@@ -44,9 +48,17 @@ function Login() {
       if (response.status === 200) {
         // Successful login, redirect based on userType
         if (formData.userType === 'user') {
+          const userId = response.data.userId;
+          localStorage.setItem('userId', userId); // Store userId in localStorage
+          setUserId(userId); // Store userId in component state
+          console.log('User ID:', userId); // Log userId for users
           navigate('/homepage'); // Redirect to the homepage for users
         } else {
-          navigate('/landlordpage'); // Redirect to the landlord page for landlords
+          const landlordId = response.data.landlordId;
+          localStorage.setItem('landlordId', landlordId); // Store landlordId in localStorage
+          setLandlordId(landlordId); // Store landlordId in component state
+          console.log('Landlord ID:', landlordId); // Log landlordId for landlords
+          navigate('/landlordpage');
         }
       } else {
         setError('Invalid Credentials');

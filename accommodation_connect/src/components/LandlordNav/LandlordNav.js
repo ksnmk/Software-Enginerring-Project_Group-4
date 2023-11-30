@@ -17,6 +17,7 @@ function LandlordNav() {
       <ul className="nav-menu">
         <li><a href="/landlordpage">Add Property</a></li>
         <li><a href="/propertydisplay">Property</a></li>
+        <li><a href="/notifications">Notification</a></li>
         <li><button onClick={handleLogout}>Logout</button></li>
       </ul>
     </nav>
