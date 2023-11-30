@@ -1,0 +1,45 @@
+.profile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    text-align: center;
+    padding: 20px;
+    box-sizing: border-box;
+  }
+  
+  .profile__main {
+    background-color: rgba(0, 0, 0, 0.7);
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.7);
+    width: 80%;
+    max-width: 400px;
+    margin: auto;
+  }
+  
+  .profile__info {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: antiquewhite;
+  }
+  
+  .info {
+    background-color: rgba(0, 0, 0, 0.9);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
+  }
+  
+  .info p {
+    margin: 0;
+    padding: 10px 0;
+    font-size: 18px;
+    color:aliceblue;
+  }
+  
+  .info b {
+    color: #ffcc00; /* Game-themed yellow color */
+  }
