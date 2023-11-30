@@ -186,6 +186,22 @@ app.delete('/propertiesdelete/:property_id', (req, res) => {
 });
 
 
+app.get('/users/:userId', (req, res) => {
+  const { userId } = req.params;
+  const sql = 'SELECT * FROM users WHERE user_id = ?';
+  con.query(sql, [userId], (err, result) => {
+    if (err) {
+      console.error('Error fetching users data:', err);
+      return res.status(500).json({ error: 'Failed to fetch users data.' });
+    }
+    if (result.length === 0) {
+      return res.status(404).json({ error: 'user not found.' });
+    }
+    const user = result[0];
+    res.json(user);
+  });
+});
+
 app.get('/properties/:property_id', (req, res) => {
   const propertyId = req.params.property_id;
   // Query the database to retrieve the property information based on property_id
@@ -321,12 +337,190 @@ app.post('/verify', (req, res) => {
 
 
 app.get('/seniorscontact', (req, res) => {
-  const sql = ` SELECT users.user_id, users.firstname, users.lastname, users.email, users.contact_no, verification.us_since_date FROM users INNER JOIN verification ON users.user_id = verification.user_id`;
+  const sql = `
+    SELECT users.user_id, MAX(users.firstname) AS firstname, MAX(users.lastname) AS lastname, MAX(users.email) AS email, MAX(users.contact_no) AS contact_no, MAX(verification.us_since_date) AS us_since_date
+    FROM users
+    INNER JOIN verification ON users.user_id = verification.user_id
+    GROUP BY users.user_id
+  `;
   con.query(sql, (err, result) => {
     if (err) {
       console.error('Error fetching seniors contact data:', err);
       return res.status(500).json({ error: 'Failed to fetch data.' });
     }
     res.json(result);
+  });
+});
+
+app.post('/pay', (req, res) => {
+  const { user_id, propertyId, paymentMethod, paymentData } = req.body;
+  if (!user_id || !propertyId || !paymentMethod) {
+    return res.status(400).json({ error: 'User ID, property ID, and payment method are required.' });
+  }
+  const paymentStatus = 'Not Paid';
+  const insertQuery = 'INSERT INTO billpayment (user_id, property_id, payment_method, payment_data, payment_status) VALUES (?, ?, ?, ?, ?)';
+  con.query(insertQuery, [user_id, propertyId, paymentMethod, JSON.stringify(paymentData), paymentStatus], (err, result) => {
+    if (err) {
+      console.error('Error inserting payment data:', err);
+      return res.status(500).json({ error: 'Failed to store payment data.' });
+    }
+    const updatePaymentStatusQuery = 'UPDATE billpayment SET payment_status = ? WHERE user_id = ? AND property_id = ?';
+    con.query(updatePaymentStatusQuery, ['Paid', user_id, propertyId], (updateErr, updateResult) => {
+      if (updateErr) {
+        console.error('Error updating payment status:', updateErr);
+        return res.status(500).json({ error: 'Failed to update payment status.' });
+      }
+      res.status(200).json({ message: 'Payment data stored and status updated successfully', paymentStatus: 'Paid' });
+    });
+  });
+});
+
+
+app.get('/billpayment/:propertyId/:userId', (req, res) => {
+  const propertyId = req.params.propertyId;
+  const userId = req.params.userId;
+  const query = 'SELECT payment_method, payment_data, payment_status, payment_time FROM billpayment WHERE property_Id = ? AND user_Id = ?';
+  con.query(query, [propertyId, userId], (err, result) => {
+    if (err) {
+      console.error(err);
+      res.status(500).json({ error: 'Internal server error' });
+    } else if (result.length > 0) {
+      // If payment information is found, return it as a JSON response
+      const paymentInfo = {
+        paymentMethod: result[0].payment_method,
+        paymentData: result[0].payment_data,
+        paymentStatus: result[0].payment_status,
+        paymentTime: result[0].payment_time,
+      };
+      res.json(paymentInfo);
+    } else {
+      // If no payment information is found, return an appropriate response (e.g., not found)
+      res.status(404).json({ error: 'Payment information not found' });
+    }
+  });
+});
+
+
+app.post('/notifyLandlord', (req, res) => {
+  const { senderId, recipientId, message } = req.body;
+  if (!senderId || !recipientId || !message) {
+    return res.status(400).json({ error: 'Sender ID, recipient ID, and message are required.' });
+  }
+  // Assuming you have a 'notifications' table with fields: notification_id, sender_id, recipient_id, message, notification_time
+  const insertQuery = 'INSERT INTO notifications (sender_id, recipient_id, message, notification_time) VALUES (?, ?, ?, NOW())';
+
+  con.query(insertQuery, [senderId, recipientId, message], (err, result) => {
+    if (err) {
+      console.error('Error inserting notification data:', err);
+      return res.status(500).json({ error: 'Failed to store notification.' });
+    }
+    res.status(200).json({ message: 'Notification sent successfully' });
+  });
+});
+
+// Handle GET requests to retrieve landlord notifications
+app.get('/notifications/:recipientId', (req, res) => {
+  const recipientId = req.params.recipientId;
+  const selectQuery = 'SELECT * FROM notifications WHERE recipient_id = ? ORDER BY notification_time DESC';
+  con.query(selectQuery, [recipientId], (err, results) => {
+    if (err) {
+      console.error('Error retrieving notifications:', err);
+      return res.status(500).json({ error: 'Failed to retrieve notifications.' });
+    }
+
+    res.status(200).json(results);
+  });
+});
+
+app.get('/getproblem',(req,res)=>{
+  const sql="SELECT * FROM problems";
+  con.query(sql,(err,result)=>{
+      if(err) return res,json({Error:"Got an error in the sql"});
+      return res.json({Status:"Success",Result:result})
+
+  })
+})
+
+app.post('/addproblem', (req, res) => {
+  // SQL query to insert new course details into the database
+  const sql = "INSERT INTO problems (`name`, `email`, `location`, `problem`, `solution`) VALUES (?)";
+  
+  // Values extracted from the incoming request
+  const values = [
+      req.body.name,
+      req.body.email,
+      req.body.location,
+      req.body.problem,
+      req.body.solution,
+  ];
+  
+  // Execute the query
+  con.query(sql, [values], (err, data) => {
+      // Error handling for the query
+      if(err) {
+          console.error("Error occurred during query execution:", err); // log the detailed error
+          return res.status(500).json({status: 'Error', message: 'Unable to add problem to the database.'});
+      }
+
+      // Return a success response if course details were inserted successfully
+      return res.status(200).json({status: 'Success', message: 'problem added successfully.', data: data});
+  });
+});
+
+
+
+app.put('/updatesolution/:id', (req, res) => {
+  const { id } = req.params;
+  const { solution } = req.body;
+
+  if (!id || !solution) {
+      return res.status(400).json({ success: false, message: 'ID and solution are required.' });
+  }
+
+  const sql = "UPDATE problems SET solution = ? WHERE id = ?";
+
+  con.query(sql, [solution, id], (err, results) => {
+      if (err) {
+          console.error('Database query error:', err);
+          return res.status(500).json({ success: false, message: 'Database error' });
+      }
+
+      if (results.affectedRows === 0) {
+          return res.status(404).json({ success: false, message: 'Application not found.' });
+      }
+
+      res.status(200).json({ success: true, message: 'Solution updated successfully.' });
+  });
+});
+
+app.get('/users/:userId', (req, res) => {
+  const userId = req.params.userId;
+  const sql = 'SELECT * FROM users WHERE user_id = ?';
+
+  con.query(sql, [userId], (error, results) => {
+    if (error) {
+      console.error('Error fetching user details from the database:', error);
+      res.status(500).json({ error: 'Database error' });
+    } else if (results.length === 0) {
+      res.status(404).json({ error: 'User not found' });
+    } else {
+      const user = results[0];
+      res.json(user);
+    }
+  });
+});
+
+app.put('/users/:userId', (req, res) => {
+  const userId = req.params.userId;  
+  const user = req.body;
+  const query = 'UPDATE users SET ? WHERE user_id = ?';
+
+  con.query(query, [user, userId], (err, result) => {
+    if (err) {
+      console.error('Database query error:', err);
+      res.status(500).json({ Status: 'Error', Message: 'Database error' });
+    } else {
+      res.json({ Status: 'Success' });
+    }
   });
 });
