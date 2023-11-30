@@ -16,7 +16,7 @@ function NavigationBar() {
       <ul className="nav-menu">
         <li><a href="/homepage">Home</a></li>
         <li><a href="/about">About</a></li>
-        <li><a href="/contact">Help</a></li>
+        <li><a href="/connect">Connect</a></li>
         <li><a href="/report">Report</a></li>
         <li><button onClick={handleLogout}>Logout</button></li>
       </ul>

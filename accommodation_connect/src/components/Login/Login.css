@@ -1,110 +1,102 @@
 /* Add this CSS to your stylesheets */
 .login-container {
-    max-width: 800px; /* Increased from 600px */
-    margin: 3rem auto; /* Slightly decreased top and bottom margins to fit larger containers on average screens */
-    padding: 4rem; /* Increased from 3rem */
-    border: 4px solid grey; /* Slightly thicker border */
-    border-radius: 20px; /* Increased for visual consistency */
-    background-image: linear-gradient(135deg, #00235c6d, #f7f4f4, #00235c6d, #f2e8e8); 
-    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.1); /* Slightly larger shadow for larger container */
-  }
-  
-  h2 {
-    font-size: 28px; /* Increased font size */
-    text-align: center;
-    margin-bottom: 25px; /* Increased spacing */
-    color:black;
-  }
-  
-  .form-group {
-    margin-bottom: 20px; /* Increased spacing between form groups */
-  }
-  #user{
-    margin-left: 15px;
-    padding: 16px 40px;
-  }
-  #landlord{
-    margin-left: 15px;
-    padding: 16px 40px;
-  }
-  
-  label {
-    font-size: 18px; /* Increased font size */
-    display: block;
-    font-weight: bold;
-    margin-bottom: 8px; /* Slightly increased spacing */
-    color:black;
-  }
-  
-  input[type="text"],
-  input[type="password"],
-  input[type="email"] {
-    width: 100%;
-    padding: 12px; /* Increased padding */
-    border: 1px solid #ccc;
-    border-radius: 6px; /* Increased for visual consistency */
-    font-size: 18px; /* Increased font size */
-  }
-  
-  input[type="radio"] {
-    margin-right: 6px; /* Slightly increased spacing */
-  }
-  
-  #login, #signup {
-    padding: 12px 24px; /* Increased padding */
-    font-size: 18px; /* Increased font size */
-    border-radius: 6px; /* Increased for visual consistency */
-    cursor: pointer;
-  }
-  
-  #login {
-    background-color: blue;
-    color: #fff;
-    border: none;
-  }
-  
-  #login:hover {
-    background-color: green;
-    transform: scale(110%) rotate(-2deg);
-  }
-  
-  #signup {
-    background-color: rgb(193, 0, 71);
-    color: #fff;
-    border: none;
-    margin-left: 28%;
-  }
-  
-  #signup:hover {
-    background-color: purple;
-    transform: scale(110%) rotate(-2deg);
-  
-  }
-  
-  .error {
-    font-size: 16px; /* Increased font size */
-    color: #ff0800;
-    font-weight: bold;
-    margin-top: 8px; /* Slightly increased spacing */
-  }
-  
-  .checkbox-label {
-    font-size: 16px; /* Increased font size */
-    display: flex;
-    align-items: center;
-    color: #333;
-  }
-  
-  .checkbox-label input[type="checkbox"] {
-    margin-right: 6px; /* Slightly increased spacing */
-  }
-  
-  body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
-    background-color: #f0f0f0;
-  }
-  
+  max-width: 600px; /* Increased from 600px */
+  margin-top: auto;
+  margin: 3rem auto; /* Slightly decreased top and bottom margins to fit larger containers on average screens */
+  padding: 4rem; /* Increased from 3rem */
+  border: 4px solid grey; /* Slightly thicker border */
+  border-radius: 20px; /* Increased for visual consistency */
+  background-image: linear-gradient(135deg, #00235c6d, #f7f4f4, #00235c6d, #f2e8e8); 
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.1); /* Slightly larger shadow for larger container */
+}
+
+h2 {
+  font-size: 28px; /* Increased font size */
+  text-align: center;
+  margin-bottom: 25px; /* Increased spacing */
+  color:black;
+}
+
+.form-group {
+  margin-bottom: 20px; /* Increased spacing between form groups */
+}
+#user{
+  margin-left: 15px;
+  padding: 16px 40px;
+}
+#landlord{
+  margin-left: 15px;
+  padding: 16px 40px;
+}
+
+label {
+  font-size: 18px; /* Increased font size */
+  display: block;
+  font-weight: bold;
+  margin-bottom: 8px; /* Slightly increased spacing */
+  color:black;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="email"] {
+  width: 100%;
+  padding: 12px; /* Increased padding */
+  border: 1px solid #ccc;
+  border-radius: 6px; /* Increased for visual consistency */
+  font-size: 18px; /* Increased font size */
+}
+
+input[type="radio"] {
+  margin-right: 6px; /* Slightly increased spacing */
+}
+
+#login, #signup {
+  padding: 12px 24px; /* Increased padding */
+  font-size: 18px; /* Increased font size */
+  border-radius: 6px; /* Increased for visual consistency */
+  cursor: pointer;
+}
+
+#login {
+  background-color: blue;
+  color: #fff;
+  border: none;
+}
+
+#login:hover {
+  background-color: green;
+  transform: scale(110%) rotate(-2deg);
+}
+
+#signup {
+  background-color: rgb(193, 0, 71);
+  color: #fff;
+  border: none;
+  margin-left: 48%;
+}
+
+#signup:hover {
+  background-color: purple;
+  transform: scale(110%) rotate(-2deg);
+
+}
+
+.error {
+  font-size: 16px; /* Increased font size */
+  color: #ff0800;
+  font-weight: bold;
+  margin-top: 8px; /* Slightly increased spacing */
+}
+
+.checkbox-label {
+  font-size: 16px; /* Increased font size */
+  display: flex;
+  align-items: center;
+  color: #333;
+}
+
+.checkbox-label input[type="checkbox"] {
+  margin-right: 6px; /* Slightly increased spacing */
+}
+
